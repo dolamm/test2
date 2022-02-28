@@ -13,17 +13,6 @@
                         {{ $post->body }}
                     </p>
                     <hr />
-                    @if($post->likers()->get()->count() == 0)
-
-<i class="fa fa-thumbs-o-up likePost" aria-hidden="true" data-like="{{$post->id}}"></i>
-{{__('Like')}}
-
-@else
-
-<i class="fa fa-thumbs-o-down likePost" aria-hidden="true" data-like="{{$post->id}}"></i>
-{{__('DisLike')}}
-
-@endif
                     <h4>Bình luận về bài viết này</h4>
   
                     @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
@@ -46,23 +35,5 @@
     </div>
 </div>
 
-<script>
-$(document).ready(function(){
-   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-   $(".likePost").click(function(){
-      $.ajax({
-         url: '{{route('ajaxLike')}}',
-         type: 'POST',
-         data: {
-            _token: CSRF_TOKEN,
-            id: $(this).data("like"),
-         },
-         dataType: 'JSON',
-         success: function() {
-            location.reload();
-         }
-      });
-   });
-});
-</script>
+
 @endsection
