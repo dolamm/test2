@@ -22,5 +22,5 @@
         </div>
     </div>
 </div>
-<a href="{{route('post')}}">Create new post</a>
+<a href="{{route('posts.create')}}">Create new post</a>
 @endsection
