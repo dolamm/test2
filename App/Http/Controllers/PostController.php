@@ -9,15 +9,6 @@ use Illuminate\Http\Request;
    
 class PostController extends Controller
 {
-    public function ajaxLike(Request $request){
-        if(!auth()->check()){
-          return response()->json(['failed' => 'Bạn chưa đăng nhập !']);
-        }
-        $post = Post::find($request->id);
-        $response = auth()->user()->toggleLike($post);
- 
-        return response()->json(['success' => $response]);
-     }
     /**
      * Display a listing of the resource.
      *
