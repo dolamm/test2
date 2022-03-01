@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    </br>
+                    <a href="{{route('tc')}}">Trang chủ</a>
                 </div>
             </div>
         </div>

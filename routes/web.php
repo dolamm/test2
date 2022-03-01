@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('tc');
 Route::get('/viewpost',function(){
     return redirect()->route('posts.index');
 })->name('view');
@@ -31,3 +31,6 @@ Route::get('/show/{post}',[App\Http\Controllers\PostController::class, 'show'])-
 
 Route::post('/CommentStore',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 Route::post('ajaxLike', 'PostController@ajaxLike')->name('ajaxLike');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
